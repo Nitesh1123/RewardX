@@ -1,54 +1,64 @@
+const express   = require('express');
+const http      = require('http');
+const { Server } = require('socket.io');
+const mongoose  = require('mongoose');
+const cors      = require('cors');
 require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const connectDB = require('./config/db');
-const errorMiddleware = require('./middleware/errorMiddleware');
 
-// Import routes
-const authRoutes = require('./routes/authRoutes');
-const employeeRoutes = require('./routes/employeeRoutes');
-const rewardRoutes = require('./routes/rewardRoutes');
-const attendanceRoutes = require('./routes/attendanceRoutes');
-const performanceRoutes = require('./routes/performanceRoutes');
-const feedbackRoutes = require('./routes/feedbackRoutes');
-const badgeRoutes = require('./routes/badgeRoutes');
-const aiRoutes = require('./routes/aiRoutes');
+const app    = express();
+const server = http.createServer(app);
 
-const app = express();
+const allowedOrigins = [
+  'http://localhost:5173',
+  process.env.CLIENT_URL,
+].filter(Boolean);
 
-// Connect to MongoDB
-connectDB();
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
 
-// Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/employees', employeeRoutes);
-app.use('/api/rewards', rewardRoutes);
-app.use('/api/attendance', attendanceRoutes);
-app.use('/api/performance', performanceRoutes);
-app.use('/api/feedback', feedbackRoutes);
-app.use('/api/badges', badgeRoutes);
-app.use('/api/ai', aiRoutes);
-
-// Health check
-app.get('/api/health', (req, res) => {
-  res.status(200).json({ success: true, message: 'Server is running' });
+const io = new Server(server, {
+  cors: {
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    credentials: true,
+  },
 });
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ success: false, message: 'Route not found' });
+app.use((req, res, next) => { req.io = io; next(); });
+
+io.on('connection', (socket) => {
+  console.log('Socket connected:', socket.id);
+  socket.on('disconnect', () => console.log('Socket disconnected:', socket.id));
 });
 
-// Error handling middleware
-app.use(errorMiddleware);
+app.use('/api/auth',        require('./routes/authRoutes'));
+app.use('/api/employees',   require('./routes/employeeRoutes'));
+app.use('/api/rewards',     require('./routes/rewardRoutes'));
+app.use('/api/attendance',  require('./routes/attendanceRoutes'));
+app.use('/api/performance', require('./routes/performanceRoutes'));
+app.use('/api/feedback',    require('./routes/feedbackRoutes'));
+app.use('/api/badges',      require('./routes/badgeRoutes'));
+app.use('/api/edit',        require('./routes/patchRoutes'));
+
+app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    server.listen(PORT, () => console.log(`RewardX server running on port ${PORT}`));
+  })
+  .catch(err => {
+    console.error('MongoDB connection failed:', err.message);
+    process.exit(1);
+  });
