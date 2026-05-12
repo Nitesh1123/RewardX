@@ -50,6 +50,7 @@ app.use('/api/performance', require('./routes/performanceRoutes'));
 app.use('/api/feedback',    require('./routes/feedbackRoutes'));
 app.use('/api/badges',      require('./routes/badgeRoutes'));
 app.use('/api/edit',        require('./routes/patchRoutes'));
+app.use('/api/ai',          require('./routes/aiRoutes'));
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
