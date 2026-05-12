@@ -10,6 +10,7 @@ const server = http.createServer(app);
 
 const allowedOrigins = [
   'http://localhost:5173',
+  'https://reward-x-ecru.vercel.app',
   process.env.CLIENT_URL,
 ].filter(Boolean);
 
