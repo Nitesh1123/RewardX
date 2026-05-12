@@ -1,0 +1,37 @@
+
+> rewardx@1.0.0 dev:client
+> cd client && npm run dev
+
+
+> rewardx-client@1.0.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v4.5.14[39m  [2mready in [0m[1m1092[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m3000[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m12:58:38 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AIInsights.jsx, /src/styles/globals.css[22m
+[2m12:59:39 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AIInsights.jsx, /src/styles/globals.css[22m
+[2m1:01:00 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/LoadingSpinner.jsx, /src/styles/globals.css[22m
+[2m1:01:02 am[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mgsap[32m[39m
+[2m1:01:02 am[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m1:01:06 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/globals.css[22m
+[2m1:01:21 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/styles/globals.css[22m
+[2m1:01:22 am[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mreact-hot-toast[32m[39m
+[2m1:01:22 am[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m1:01:40 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/Sidebar.jsx, /src/styles/globals.css[22m
+[2m1:01:51 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/dashboard/StatCard.jsx, /src/styles/globals.css[22m
+[2m1:01:59 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/charts/PerformanceChart.jsx, /src/styles/globals.css[22m
+[2m1:01:59 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/charts/AttendanceHeatmap.jsx, /src/styles/globals.css[22m
+[2m1:01:59 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/charts/RewardDistributionChart.jsx, /src/styles/globals.css[22m
+[2m1:02:27 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Login.jsx, /src/styles/globals.css[22m
+[2m1:02:38 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/EmployeeDashboard.jsx, /src/styles/globals.css[22m
+[2m1:02:40 am[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mgsap/TextPlugin[32m[39m
+[2m1:02:40 am[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m1:02:48 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/ManagerDashboard.jsx, /src/styles/globals.css[22m
+[2m1:03:12 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Leaderboard.jsx, /src/styles/globals.css[22m
+[2m1:03:39 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/RewardsStore.jsx, /src/styles/globals.css[22m
+[2m1:04:17 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/AIInsights.jsx, /src/styles/globals.css[22m
+[2m1:04:47 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/FeedbackPortal.jsx, /src/styles/globals.css[22m
+[2m1:04:54 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/FeedbackPortal.jsx, /src/styles/globals.css[22m

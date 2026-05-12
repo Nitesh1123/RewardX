@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.13), transparent 28rem),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.1), transparent 30rem),
+    #0A0A0F;
+  color: #F8F8FF;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E1E2E;
+  border: 2px solid #0A0A0F;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* Utility classes */
+.container-app {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #F59E0B, #FCD34D 45%, #D97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+}
+
+.glow-gold {
+  box-shadow: 0 0 24px rgba(245,158,11,0.3);
+}
+
+.app-shell {
+  @apply min-h-screen bg-dark text-textPrimary;
+}
+
+.app-main {
+  @apply min-h-screen pl-0 lg:pl-72;
+}
+
+.input-field {
+  @apply w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-textPrimary placeholder:text-textMuted outline-none transition focus:border-primary/70 focus:ring-4 focus:ring-primary/10;
+}
+
+.btn-primary {
+  @apply rounded-2xl bg-gold-gradient px-5 py-3 font-bold text-dark shadow-gold transition hover:scale-[1.04] hover:shadow-[0_0_36px_rgba(245,158,11,0.42)] active:scale-[0.96];
+  will-change: transform;
+}
+
+.btn-ghost {
+  @apply rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-3 font-semibold text-textPrimary transition hover:border-primary/50 hover:text-primary;
+  will-change: transform;
+}
+
+.btn-danger {
+  @apply rounded-2xl bg-danger px-5 py-3 font-bold text-white transition hover:bg-red-600 active:scale-[0.96];
+  will-change: transform;
+}
+
+.section-grid {
+  @apply grid gap-5;
+}
+
+.modal-backdrop {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm;
+}
+
+.tier-bronze {
+  @apply border-orange-700/50 bg-orange-950/40 text-orange-300;
+}
+
+.tier-silver {
+  @apply border-slate-400/40 bg-slate-400/10 text-slate-200;
+}
+
+.tier-gold {
+  @apply border-primary/50 bg-primary/10 text-primary;
+}
+
+.tier-platinum {
+  @apply border-cyan-300/50 bg-cyan-300/10 text-cyan-200;
+}
